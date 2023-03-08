@@ -1,17 +1,10 @@
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    message: String
-  },
-  setup(props) {
-    props.message // <-- type: string
-  }
-})
+<script setup lang="ts">
+import Navigator from './Navigator.vue'
+</script>
 
 <template>
   <aside>
-	  <!-- <Logo /> -->
-	  <!-- <Navigator /> -->
+    <!-- <Logo /> -->
+    <Navigator />
   </aside>
 </template>
