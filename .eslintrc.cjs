@@ -21,5 +21,8 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  excludes: {
+    'multi-word-component-names': true,
   }
 }
