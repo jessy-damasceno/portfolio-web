@@ -1,22 +1,58 @@
 <template>
   <nav class="nav-container">
     <div class="nav-links">
-      <a v-on:click="onClick" href="/"><span>Home</span></a>
-      <a href="/about"><span>About</span></a>
-      <a href="/skills"><span>Skills</span></a>
-      <a href="/experience"><span>Experience</span></a>
-      <a href="/education"><span>Education</span></a>
-      <a href="/projects"><span>Projects</span></a>
-      <a href="/contact"><span>Contact</span></a>
+      <a v-for="(link, index) in links"
+         :key="index"
+         :class="{ active: activeLink === index }"
+         :href="link.url"
+         @click.prevent="activateLink(index, link.url)"
+      >
+        <span>{{ link.label }}</span>
+      </a>
     </div>
     <div class="social-icons"></div>
   </nav>
 </template>
 
-<script lang="ts"> 
-  export default function onClick() {
-    console.log('oioioioi');
-  }
+<script lang="ts">
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+
+interface Link {
+  label: string;
+  url: string;
+}
+
+export default {
+  setup() {
+    const links: Link[] = [
+      { label: 'Home', url: '/' },
+      { label: 'About', url: '/about' },
+      { label: 'Skills', url: '/skills' },
+      { label: 'Experience', url: '/experience' },
+      { label: 'Education', url: '/education' },
+      { label: 'Projects', url: '/projects' },
+      { label: 'Contact', url: '/contact' },
+    ];
+
+    const activeLink = ref<number>(0);
+    const router = useRouter();
+    const route = useRoute();
+
+    function activateLink(index: number, url: string) {
+      activeLink.value = index;
+      if (url !== route.path) {
+        router.push(url);
+      }
+    }
+
+    return {
+      links,
+      activateLink,
+      activeLink,
+    };
+  },
+};
 </script>
 
 <style>
@@ -46,6 +82,12 @@
 }
 
 .nav-links a span:active {
-  color: #ee6817; font-weight: 800 
+  color: #ee6817;
+  font-weight: bold; 
+}
+
+.active {
+  color: #ee6817;
+  font-weight: 800;
 }
 </style>
