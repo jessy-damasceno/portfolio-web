@@ -1,13 +1,13 @@
 <template>
   <nav class="nav-container">
     <div class="nav-links">
-      <a href="http://google.com">Home</a>
-      <a href="http://google.com">About</a>
-      <a href="http://google.com">Skills</a>
-      <a href="http://google.com">Experience</a>
-      <a href="http://google.com">Education</a>
-      <a href="http://google.com">Projects</a>
-      <a href="http://google.com">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/skills">Skills</a>
+      <a href="/experience">Experience</a>
+      <a href="/education">Education</a>
+      <a href="/projects">Projects</a>
+      <a href="/contact">Contact</a>
     </div>
     <div class="social-icons"></div>
 </nav>

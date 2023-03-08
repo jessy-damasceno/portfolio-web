@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SideBar from '../components/SideBar.vue'
+import Home from '../components/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: SideBar
+      component: Home
     },
   ]
 })
