@@ -1,5 +1,6 @@
 <template>
   <nav class="nav-container">
+    <div class="logo"></div>
     <div class="nav-links">
       <a
         v-for="(link, index) in links"
@@ -62,21 +63,33 @@ export default {
 
 <style>
 .nav-container {
-  height: 100%;
-  position: fixed;
+  height: 100vh;
   background-color: rgb(13, 13, 13);
   z-index: 100;
   color: #f8f8f8;
+  width: 220px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  align-items: center;
 }
+
+.logo {
+  background-color: white;
+  height:150px;
+  width: 150px; 
+}
+
 .nav-links {
   display: flex;
   flex-direction: column;
 }
+
 .nav-links a {
   display: block;
   padding: 13px 0;
   text-align: left;
-  margin: 0 30px;
   border-bottom: 1px solid rgba(235, 235, 235, 0.1);
   text-transform: uppercase;
   width: 150px;
@@ -98,8 +111,9 @@ export default {
 
 .social-icons {
   display: flex;
-  gap: 20px;
-  padding: 35px;
+  justify-content: space-around;
+  width: 100%;
+  align-self: flex-start;
 }
 
 .social-icons a {

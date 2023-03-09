@@ -1,4 +1,5 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap'); 
 
 * {
   outline: 0 !important;
@@ -14,8 +15,12 @@
   -o-transition-timing-function: ease-out;
 }
 
+#app {
+  display: flex;
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #aaaaaa;
@@ -38,6 +43,7 @@ a {
 a:hover {
   color: #ee6817;
 }
+
 
 ::selection {
   color: #000;
