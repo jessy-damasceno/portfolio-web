@@ -1,8 +1,7 @@
 <template>
-  <div class="about-container">
+  <div class="container about-container">
     <div class="infos">
-      <h2>About</h2>
-      <div class="line"></div>
+      <title-component :skills="'About'" />
       <div class="about-info">
         <ul>
           <li><span>Name:</span> Lucas Otoni Assunção</li>
@@ -35,22 +34,8 @@
 <style>
 .about-container {
   align-items: center;
-  padding: 70px;
   display: flex;
-  height: 100vh;
   justify-content: space-around;
-}
-
-.about-container h2 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-.line {
-  background-color: #ee6817;
-  height: 5px;
-  width: 70px;
-  margin: 30px 0 50px 0;
 }
 
 .infos {
