@@ -1,7 +1,7 @@
 <template>
   <div class="container about-container">
+    <title-component :skills="'About'" />
     <div class="infos">
-      <title-component :skills="'About'" />
       <div class="about-info">
         <ul>
           <li><span>Name:</span> Lucas Otoni Assunção</li>
@@ -13,33 +13,31 @@
         </ul>
         <button class="button">DOWNLOAD RESUME AS PDF FORMAT</button>
       </div>
-    </div>
-    <div class="vertical-line"></div>
-    <div class="personal-info">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacus vitae
-        leo blandit, ac convallis diam pharetra. Vestibulum venenatis sollicitudin leo at luctus.
-        Aliquam vitae congue sapien. Donec ac bibendum libero. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Sed volutpat interdum justo, eu
-        dignissim eros vehicula at. Proin aliquam magna euismod, efficitur tellus vel, maximus
-        metus. Nunc dictum id enim in ullamcorper. Nulla nec libero eget elit consequat consequat.
-        Donec sagittis, est sit amet tempor efficitur, nulla libero vehicula nisl, nec maximus felis
-        metus sed odio. Duis eu dolor nec enim dignissim rhoncus. In hac habitasse platea dictumst.
-        Sed at neque eget enim pharetra pretium sed sit amet turpis.
-      </p>
+      <div class="vertical-line"></div>
+      <div class="personal-info">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat lacus vitae
+          leo blandit, ac convallis diam pharetra. Vestibulum venenatis sollicitudin leo at luctus.
+          Aliquam vitae congue sapien. Donec ac bibendum libero. Vestibulum ante ipsum primis in
+          faucibus orci luctus et ultrices posuere cubilia Curae; Sed volutpat interdum justo, eu
+          dignissim eros vehicula at. Proin aliquam magna euismod, efficitur tellus vel, maximus
+          metus. Nunc dictum id enim in ullamcorper. Nulla nec libero eget elit consequat consequat.
+          Donec sagittis, est sit amet tempor efficitur, nulla libero vehicula nisl, nec maximus
+          felis metus sed odio. Duis eu dolor nec enim dignissim rhoncus. In hac habitasse platea
+          dictumst. Sed at neque eget enim pharetra pretium sed sit amet turpis.
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <style>
-.about-container {
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-}
 
 .infos {
+  align-items: center;
   min-width: 30%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .about-info ul {
