@@ -9,11 +9,13 @@
         @mouseover="showDetails(index)"
         @mouseleave="hideDetails(index)"
       >
-        <img :src="project.url" alt="Project Image" />
-        <div v-if="project.showDetails" class="details">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-        </div>
+        <a :href="project.url" target="_blank">
+          <img :src="project.img" alt="Project Image" />
+          <div v-if="project.showDetails" class="details">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -27,28 +29,32 @@ interface Project {
   name: string
   description: string
   showDetails: boolean
+  img: string
 }
 
 export default defineComponent({
   setup() {
     const projects: Project[] = reactive([
       {
-        url: 'https://picsum.photos/500/300?random=1',
+        img: 'https://picsum.photos/500/300?random=1',
         name: 'Project One',
         description: 'This is the first project description.',
-        showDetails: false
+        showDetails: false,
+        url: 'https://google.com'
       },
       {
-        url: 'https://picsum.photos/500/300?random=2',
+        img: 'https://picsum.photos/500/300?random=2',
         name: 'Project Two',
         description: 'This is the second project description.',
-        showDetails: false
+        showDetails: false,
+        url: 'https://google.com'
       },
       {
-        url: 'https://picsum.photos/500/300?random=3',
+        img: 'https://picsum.photos/500/300?random=3',
         name: 'Project Three',
         description: 'This is the third project description.',
-        showDetails: false
+        showDetails: false,
+        url: 'https://google.com'
       }
     ])
 
@@ -75,7 +81,7 @@ export default defineComponent({
   width: 75%;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.478);
-  padding: 25px ;
+  padding: 25px;
 }
 
 .card img {
@@ -106,9 +112,9 @@ export default defineComponent({
 }
 
 .projects-container {
-   overflow-y: scroll;
-   height: 75vh;
-   width: 70vw;
+  overflow-y: scroll;
+  height: 75vh;
+  width: 70vw;
 }
 
 .projects-container::-webkit-scrollbar {
