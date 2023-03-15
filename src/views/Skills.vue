@@ -3,7 +3,7 @@
     <title-component :skills="'Skills'" />
     <div class="skills-container">
       <div v-for="(skill, type) in skills" :key="type" class="type-container">
-        <h3 class="type-title">{{type}}</h3>
+        <h3 class="type-title">{{ type }}</h3>
         <div v-for="(e, index) in skill" :key="index">
           <!-- <img src="{{ skill.img }}" alt=""> -->
           <div class="logo"></div>
@@ -81,11 +81,11 @@ export default {
 }
 
 .type-title {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 28px;
-    margin-top: 5px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  margin-top: 5px;
 }
 
 .type-container {
@@ -95,7 +95,6 @@ export default {
   width: 600px;
   gap: 40px;
   overflow-y: scroll;
-
 }
 
 .type-container::-webkit-scrollbar {
@@ -107,10 +106,10 @@ export default {
   border-radius: 10px;
 }
 .type-container::-webkit-scrollbar-thumb {
-  background:  #ee6817;
+  background: #ee6817;
   border-radius: 10px;
 }
 .type-container::-webkit-scrollbar-thumb:hover {
-  background:  #b44a08;
+  background: #b44a08;
 }
 </style>
