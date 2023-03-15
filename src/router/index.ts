@@ -30,8 +30,8 @@ const router = createRouter({
       component: components.Education
     },
     {
-      path: '/portfolio',
-      name: 'portfolio',
+      path: '/projects',
+      name: 'projects',
       component: components.Portfolio
     },
     {
