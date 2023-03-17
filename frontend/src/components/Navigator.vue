@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { ref, VueElement } from 'vue'
+import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 interface Link {
