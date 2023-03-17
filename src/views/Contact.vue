@@ -3,15 +3,19 @@
     <title-component :skills="'Experience'" />
     <div class="contact-container">
       <div class="contact">
-        <div class="emailfont">
-          <font-awesome-icon icon="fa-solid fa-location-dot" />
-          <h3>Location</h3>
-          <span>Belo Horizonte, Brazil</span>
+        <div class="contact-item">
+          <font-awesome-icon icon="fa-solid fa-location-dot" class="icon" />
+          <div>
+            <h3>Location</h3>
+            <span>Belo Horizonte, Brazil</span>
+          </div>
         </div>
-        <div class="email">
-          <font-awesome-icon icon="fa-solid fa-envelope" />
-          <h3>Email</h3>
-          <span>lucasotoni.dev@gmail.com</span>
+        <div class="contact-item">
+          <font-awesome-icon icon="fa-solid fa-envelope" class="icon" />
+          <div>
+            <h3>Email</h3>
+            <span>lucasotoni.dev@gmail.com</span>
+          </div>
         </div>
       </div>
       <div class="social">
@@ -30,10 +34,10 @@
       </div>
     </div>
     <form class="email-form">
-      <input />
-      <input />
+      <input type="text" id="name" />
+      <input type="email" id="name" />
       <textarea name="" id="" cols="30" rows="10"></textarea>
-      <button>Send</button>
+      <button class="button button-form">Send</button>
     </form>
   </div>
 </template>
@@ -43,14 +47,14 @@
   padding: 40px 0;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
   display: flex;
-  height: 50vh;
   width: 70vw;
+  max-width: 720px;
 }
 
 .social {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 40px;
   width: 30%;
 }
@@ -61,13 +65,29 @@
 
 .contact-icons {
   display: flex;
-  justify-content: space-around;
+  gap: 30px;
+  /* justify-content: space-around; */
   width: 100%;
   align-self: flex-start;
 }
 
+.contact-item {
+  display: flex;
+  gap: 20px;
+}
+
+.icon {
+  font-size: 45px;
+  color: #ee6817;
+  width: 50px;
+}
+
+.icon:hover {
+  color: #aaaaaa;
+}
+
 .contact-icons a {
-  font-size: 55px;
+  font-size: 45px;
   transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
@@ -90,9 +110,31 @@
 }
 
 .email-form {
-  padding: 20px;
+  padding: 40px 0;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
   display: flex;
   flex-direction: column;
+}
+
+.email-form input, textarea {
+  padding: 15px;
+  background-color: #3b3b3b;
+  border: 1px solid #3b3b3b;
+  color: #a6a6a6;
+  resize: none;
+  font-size: 14px;
+  margin: 20px 0 0;
+}
+
+textarea {
+  height: 150px;
+}
+
+.email-form input:focus, textarea:focus {
+  border: 2px solid #ee6817;
+}
+
+.button-form {
+  width: 150px;
 }
 </style>
