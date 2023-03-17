@@ -5,12 +5,14 @@ export default class User {
   private email: string;
   private location: string;
   private role: string;
+  private socials: object;
 
   constructor(user: IUser) {
     this.name = user.name;
     this.email = user.email;
     this.location = user.location;
     this.role = user.role;
+    this.socials = user.socials;
   }
 
   public getName(): string {
@@ -43,5 +45,12 @@ export default class User {
 
   public setRole(role: string): void {
     this.role = role;
+  }
+  public getSocials(): object {
+    return this.socials;
+  }
+
+  public setSocials(socials: object): void {
+    this.socials = socials;
   }
 }

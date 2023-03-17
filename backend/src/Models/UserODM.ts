@@ -12,6 +12,11 @@ class UserODM extends AbstractODM<IUser> {
       email: { type: String, required: true },
       location: { type: String, required: true },
       role: { type: String, required: true },
+      socials: {
+        linkedin: { type: String, required: true },
+        github: { type: String, required: true },
+        instagram: { type: String, required: true },
+      },
     });
     super(schema, 'User');
 
