@@ -3,6 +3,7 @@ import UserService from '../Services/UserService';
 import IError from '../Interfaces/IError';
 import { StatusCodes } from 'http-status-codes';
 import { validateLogin } from '../validations/validations'
+import tokenGenerator from '../utils/tokenGenerator';
 
 export default class UserController {
   private req: Request;
@@ -27,6 +28,16 @@ export default class UserController {
   }
 
   public async login() {
+    try {
+      const { email, password } = this.req.body;
+      const user = await this.service.getByEmailAndPassword(email, password);
+
+      const token = tokenGenerator(user.email);
+
+      return this.res.status(StatusCodes.OK).json({ token });
+    } catch (err) {
+      this.next(err)
+    }
   }
 
   public async create() {

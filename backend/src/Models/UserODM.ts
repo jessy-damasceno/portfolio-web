@@ -10,6 +10,7 @@ class UserODM extends AbstractODM<IUser> {
     const schema = new Schema<IUser>({
       name: { type: String, required: true },
       email: { type: String, required: true },
+      password: { type: String, required: true},
       location: { type: String, required: true },
       role: { type: String, required: true },
       socials: {
@@ -26,6 +27,10 @@ class UserODM extends AbstractODM<IUser> {
   }
   public async create(user: IUser): Promise<IUser> {
     return this.model.create({ ...user });
+  }
+
+  public async findByEmail(email: string) {
+    return this.model.findOne({ email });
   }
 }
 export default UserODM;

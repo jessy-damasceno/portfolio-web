@@ -2,9 +2,10 @@ import User from '../Domains/User';
 import IUser from '../Interfaces/IUser';
 import IError from '../Interfaces/IError';
 import UserODM from '../Models/UserODM';
+import bcrypt from "bcrypt";
 
 const NOT_FOUND_ERROR = {
-  type: 'notFound', message: 'User not found',
+  type: 'NOT_FOUND', message: 'User not found',
 } as IError;
 
 export default class UserService {
@@ -53,5 +54,28 @@ export default class UserService {
     if (user) return null;
 
     throw NOT_FOUND_ERROR;
+  }
+
+  public async getByEmailAndPassword(email: string, password: string) {
+      const userODM = new UserODM();
+      const user = await userODM.findByEmail(email);
+
+      if (!user) {
+        throw {
+          type: 'UNAUTHORIZED_USER',
+          message: 'Invalid e-mail or password',
+        } as IError;
+      }
+  
+      const match = bcrypt.compare(password, user.password);
+
+      if (!match) {
+        throw {
+          type: 'UNAUTHORIZED_USER',
+          message: 'Invalid e-mail or password',
+        } as IError;
+      }
+
+      return user;
   }
 }
