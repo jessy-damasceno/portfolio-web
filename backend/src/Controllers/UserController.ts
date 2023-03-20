@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import UserService from '../Services/UserService';
 import IError from '../Interfaces/IError';
 import { StatusCodes } from 'http-status-codes';
+import { validateLogin } from '../validations/validations'
 
 export default class UserController {
   private req: Request;
@@ -14,6 +15,18 @@ export default class UserController {
     this.res = res;
     this.next = next;
     this.service = new UserService();
+  }
+
+  public async validateLoginBody() {
+    const error = validateLogin(this.req.body);
+
+    if (error.type) {
+      this.next(error);
+    }
+    this.next();
+  }
+
+  public async login() {
   }
 
   public async create() {

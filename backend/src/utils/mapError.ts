@@ -1,11 +1,11 @@
 export const errorMap = {
-  fieldRequired: 400,
-  invalidField: 400,
-  alreadyRegistered: 409,
-  tokenError: 401,
-  notFound: 404,
-  unauthorizedUser: 401,
-  typeError: 422,
+  FIELD_REQUIRED: 400,
+  INVALID_FIELD: 400,
+  ALREADY_REGISTERED: 409,
+  TOKEN_ERROR: 401,
+  NOT_FOUND: 404,
+  UNAUTHORIZED_USER: 401,
+  TYPE_ERROR: 422,
 };
 
 export const mapError = (type: string | undefined): number =>
