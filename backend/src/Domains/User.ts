@@ -7,6 +7,7 @@ export default class User {
   private location: string;
   private role: string;
   private socials: object;
+  private description: string;
 
   constructor(user: IUser) {
     this.name = user.name;
@@ -15,6 +16,7 @@ export default class User {
     this.role = user.role;
     this.socials = user.socials;
     this._password = user.password;
+    this.description = user.description;
   }
 
   public getName(): string {
@@ -54,5 +56,13 @@ export default class User {
 
   public setSocials(socials: object): void {
     this.socials = socials;
+  }
+
+  public getDescription(): string {
+    return this.description;
+  }
+
+  public setDescription(description: string): void {
+    this.description = description;
   }
 }

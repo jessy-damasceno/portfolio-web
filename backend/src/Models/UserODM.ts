@@ -18,6 +18,7 @@ class UserODM extends AbstractODM<IUser> {
         github: { type: String, required: true },
         instagram: { type: String, required: true },
       },
+      description: { type: String, required: true },
     });
     super(schema, 'User');
 

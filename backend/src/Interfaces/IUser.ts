@@ -4,6 +4,8 @@ export default interface IUser {
   password: string;
   location: string;
   role: string;
+  description: string;
+  birthDate: Date;
   socials: {
     linkedin: string;
     github: string;
