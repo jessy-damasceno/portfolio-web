@@ -3,7 +3,6 @@ import IUser from '../Interfaces/IUser';
 export default class User {
   private name: string;
   private email: string;
-  private _password: string;
   private location: string;
   private role: string;
   private socials: object;
@@ -15,7 +14,6 @@ export default class User {
     this.location = user.location;
     this.role = user.role;
     this.socials = user.socials;
-    this._password = user.password;
     this.description = user.description;
   }
 
