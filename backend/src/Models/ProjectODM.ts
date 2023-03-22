@@ -27,5 +27,9 @@ class ProjectODM extends AbstractODM<IProject> {
   public async findByUserId(id: string) {
     return this.model.findOne({ author: id });
   }
+
+  public async findByAuthor(author: string) {
+    return this.model.find({ author });
+  }
 }
 export default ProjectODM;
