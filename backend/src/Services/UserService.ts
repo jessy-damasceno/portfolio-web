@@ -2,7 +2,7 @@ import User from '../Domains/User';
 import IUser from '../Interfaces/IUser';
 import IError from '../Interfaces/IError';
 import UserODM from '../Models/UserODM';
-import bcrypt from "bcrypt";
+import * as bcrypt from 'bcrypt';
 
 const NOT_FOUND_ERROR = {
   type: 'NOT_FOUND', message: 'User not found',
@@ -15,7 +15,9 @@ export default class UserService {
 
   public async create(user: IUser): Promise<User | null | undefined> {
     const userODM = new UserODM();
-    const newUser = await userODM.create(user);
+    const hash = await bcrypt.hash(user.password, bcrypt.genSaltSync(8))
+
+    const newUser = await userODM.create({ ...user, password: hash });
 
     return this.createUserDomain(newUser);
   }
@@ -67,7 +69,7 @@ export default class UserService {
         } as IError;
       }
   
-      const match = bcrypt.compare(password, user.password);
+      const match = await bcrypt.compare(password, user.password);
 
       if (!match) {
         throw {

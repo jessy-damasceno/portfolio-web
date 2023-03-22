@@ -19,8 +19,6 @@ export default async function validateToken(req: Request, res: Response, next: N
     const userODM = new UserODM();
     const user = await userODM.findByEmail(email);
 
-    console.log(user);
-
     if (!user) {
       next({ type: 'TOKEN_ERROR', message: 'Expired or invalid token' });
     }

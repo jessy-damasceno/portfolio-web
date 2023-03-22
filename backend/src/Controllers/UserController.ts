@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 import UserService from '../Services/UserService';
 import IError from '../Interfaces/IError';
 import { StatusCodes } from 'http-status-codes';
-import { validateLogin } from '../validations/validations'
 import tokenGenerator from '../utils/tokenGenerator';
 
 export default class UserController {
@@ -16,15 +15,6 @@ export default class UserController {
     this.res = res;
     this.next = next;
     this.service = new UserService();
-  }
-
-  public async validateLoginBody() {
-    const error = validateLogin(this.req.body);
-
-    if (error.type) {
-      this.next(error);
-    }
-    this.next();
   }
 
   public async login() {
@@ -42,8 +32,8 @@ export default class UserController {
 
   public async create() {
     try {
-      const newUser = await this.service.create(this.req.body);
-      return this.res.status(StatusCodes.CREATED).json(newUser);
+      const newProject = await this.service.create(this.req.body);
+      return this.res.status(StatusCodes.CREATED).json(newProject);
     } catch (err) {
       return this.next({ ...(err as IError) });
     }
