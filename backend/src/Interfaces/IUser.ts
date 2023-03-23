@@ -1,3 +1,5 @@
+import IExperience from './IExperience';
+
 export default interface IUser {
   name: string;
   email: string;
@@ -11,4 +13,5 @@ export default interface IUser {
     github: string;
     instagram: string;
   };
+  experiences: IExperience[];
 }
