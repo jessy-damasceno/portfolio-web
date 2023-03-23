@@ -1,4 +1,5 @@
 import IUser from '../Interfaces/IUser';
+import IExperience from '../Interfaces/IExperience';
 
 export default class User {
   private name: string;
@@ -7,6 +8,7 @@ export default class User {
   private role: string;
   private socials: object;
   private description: string;
+  private experiences: IExperience[];
 
   constructor(user: IUser) {
     this.name = user.name;
@@ -15,6 +17,7 @@ export default class User {
     this.role = user.role;
     this.socials = user.socials;
     this.description = user.description;
+    this.experiences = user.experiences;
   }
 
   public getName(): string {
@@ -62,5 +65,17 @@ export default class User {
 
   public setDescription(description: string): void {
     this.description = description;
+  }
+
+  public getExperiences(): IExperience[] {
+    return this.experiences;
+  }
+
+  public setExperiences(experiences: IExperience[]): void {
+    this.experiences = experiences;
+  }
+
+  public addExperience(experience: IExperience): void {
+    this.experiences.push(experience);
   }
 }

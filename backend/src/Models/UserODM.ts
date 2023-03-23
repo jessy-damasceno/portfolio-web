@@ -1,5 +1,6 @@
 import { Model, Schema, model, models } from 'mongoose';
 import IUser from '../Interfaces/IUser';
+import IExperience from '../Interfaces/IExperience';
 import AbstractODM from './AbstractODM';
 
 class UserODM extends AbstractODM<IUser> {
@@ -10,7 +11,7 @@ class UserODM extends AbstractODM<IUser> {
     const schema = new Schema<IUser>({
       name: { type: String, required: true },
       email: { type: String, required: true },
-      password: { type: String, required: true},
+      password: { type: String, required: true },
       location: { type: String, required: true },
       role: { type: String, required: true },
       socials: {
@@ -19,6 +20,15 @@ class UserODM extends AbstractODM<IUser> {
         instagram: { type: String, required: true },
       },
       description: { type: String, required: true },
+      experiences: [
+        {
+          company: { type: String, required: true },
+          role: { type: String, required: true },
+          dateIn: { type: Date, required: true },
+          dateOut: { type: Date, required: true },
+          description: { type: String, required: true },
+        },
+      ],
     });
     super(schema, 'User');
 
