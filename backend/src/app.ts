@@ -11,7 +11,7 @@ app.use('/user', userRouter);
 app.use('/project', projectRouter);
 app.use('/', swaggerRouter);
 
-app.use('/healthz', (_req, res, _next) => res.status(200));
+app.get('/healthz', (_req, res) => res.status(200).json({ message: "OK!" }));
 
 app.use(ErrorHandler.handle);
 export default app;
