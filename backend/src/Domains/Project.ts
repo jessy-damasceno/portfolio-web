@@ -1,6 +1,7 @@
 import IProject from '../Interfaces/IProject';
 
 export default class Project {
+  private id: string | undefined;
   private name: string;
   private author: string;
   private description: string;
@@ -8,6 +9,7 @@ export default class Project {
   private url: string;
 
   constructor(project: IProject) {
+    this.id = project.id;
     this.name = project.name;
     this.author = project.author;
     this.description = project.description;

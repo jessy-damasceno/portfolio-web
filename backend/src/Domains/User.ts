@@ -2,6 +2,7 @@ import IUser from '../Interfaces/IUser';
 import IExperience from '../Interfaces/IExperience';
 
 export default class User {
+  private id: string | undefined;
   private name: string;
   private email: string;
   private location: string;
@@ -11,6 +12,7 @@ export default class User {
   private experiences: IExperience[];
 
   constructor(user: IUser) {
+    this.id = user.id;
     this.name = user.name;
     this.email = user.email;
     this.location = user.location;
@@ -18,6 +20,10 @@ export default class User {
     this.socials = user.socials;
     this.description = user.description;
     this.experiences = user.experiences;
+  }
+
+  public getId(): string | undefined {
+    return this.id;
   }
 
   public getName(): string {
