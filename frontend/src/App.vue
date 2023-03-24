@@ -8,7 +8,7 @@ async function fetchData() {
     axios
       .get('https://api-portfolio-xi30.onrender.com/user/641de57b4a585af300538310')
       .then((response) => {
-        console.log(response.data)
+        localStorage.setItem('user', JSON.stringify(response.data))
       })
   } catch (error) {
     console.error(error)

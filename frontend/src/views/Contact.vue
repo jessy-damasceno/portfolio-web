@@ -21,13 +21,13 @@
       <div class="social">
         <h3>Find me on</h3>
         <div class="contact-icons">
-          <a href="{{user.socials.instagram}}"
+          <a :href="user.socials.instagram" target="_blank"
             ><font-awesome-icon class="insta" icon="fa-brands fa-instagram"
           /></a>
-          <a href="{{user.socials.github}}"
+          <a :href="user.socials.github" target="_blank"
             ><font-awesome-icon class="git" icon="fa-brands fa-github"
           /></a>
-          <a href="{{user.socials.linkedin}}"
+          <a :href="user.socials.linkedin" target="_blank"
             ><font-awesome-icon class="linkedin" icon="fa-brands fa-linkedin-in"
           /></a>
         </div>
