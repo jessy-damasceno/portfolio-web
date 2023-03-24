@@ -1,0 +1,526 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Portfolio Web API Documentation",
+		"description": "In this documentation you will be able to consult the API end-points and also test all available routes. Do not forget to register and carry out the authorization.",
+		"version": "1.0.0",
+		"contact": {
+			"email": "jessy_bass@hotmail.com"
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3001",
+			"description": "Local Server via docker-compose build"
+		},
+		{
+			"url": "https://api-portfolio-xi30.onrender.com",
+			"description": "Cloud server API"
+		}
+	],
+	"paths": {
+		"/user": {
+			"get": {
+				"summary": "Get all users",
+				"description": "Route responsible for returning all users cadastrated in database.",
+				"tags": ["Users"],
+				"responses": {
+					"200": {
+						"description": "A list of users",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ArrayOfUsers"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "User(s) not found"
+					}
+				}
+			},
+			"post": {
+				"summary": "Creates a new user",
+				"description": "Route responsible for creating a new user. !!IMPORTANT!! Date format: dd/MM/yyyy",
+				"tags": ["Users"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/User"
+							},
+							"examples": {
+								"Users": {
+									"value": {
+										"name": "John Smith Swagger",
+										"email": "johnsmith@swagger.com",
+										"password": "my_password",
+										"location": "Ohio, US",
+										"role": "Developer",
+										"description": "Here's a description for the user John Smith Swagger. Hi, I'm Swagger!",
+										"birthDate": "24/03/2023",
+										"socials": {
+											"linkedin": "your_linkedin_url",
+											"github": "your_github_url",
+											"instagram": "your_instagram_url"
+										},
+										"experiences": [
+											{
+												"company": "John Smith Corp",
+												"role": "Developer",
+												"dateIn": "01/01/2022",
+												"dateOut": "01/01/2023",
+												"description": "Here's a description for the job in John Smith Corp."
+											},
+											{
+												"company": "Other company",
+												"role": " Back-end Developer",
+												"dateIn": "02/01/2023",
+												"description": "Here's a description for the job in Other company."
+											}
+										]
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			}
+		},
+		"/user/login": {
+			"post": {
+				"summary": "Log in with e-mail and password",
+				"description": "You need to login with your correct e-mail and password. The API will return a token. This token is important in routes with bearer authentication",
+				"tags": ["Users"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Login"
+							},
+							"examples": {
+								"John Smith OK": {
+									"value": {
+										"email": "johnsmith@swagger.com",
+										"password": "my_password"
+									}
+								},
+								"Wrong e-mail or missing fields": {
+									"value": {
+										"email": "",
+										"password": "my_password"
+									}
+								},
+								"Wrong password or missing fields": {
+									"value": {
+										"email": "johnsmith@swagger.com",
+										"password": ""
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successfull login with e-mail and password",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Implc3N5MjJfYmFzc0Bob3RtYWlsLmNvbSIsImlhdCI6MTY3OTUxNDI2MiwiZXhwIjoxNjgwMTE5MDYyfQ.gZ3_srA-y3TtoaD72gsfUblpDBTAg4JsvZFgEn_Gs8c"
+									}
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized user",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "Invalid e-mail or password"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user/{id}": {
+			"get": {
+				"summary": "Search user by id",
+				"description": "Route responsible for searching for user by id.",
+				"tags": ["Users"],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"schema": {
+							"type": "string"
+						},
+						"description": "user ID",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/User"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "User not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "User(s) not found"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/project": {
+			"get": {
+				"summary": "Search all projects",
+				"description": "Route responsible for fetching all projects on database",
+				"tags": ["Projects"],
+				"responses": {
+					"200": {
+						"description": "A list of projects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ArrayOfProjects"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Project(s) not found"
+					}
+				}
+			},
+			"post": {
+				"summary": "Create a new project",
+				"description": "Route responsible for creating a new Project on database",
+				"tags": ["Projects"],
+				"security": [{ "bearerAuth": [] }],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Project"
+							},
+							"examples": {
+								"Project": {
+									"name": "My Project",
+									"author": "John Smith",
+									"description": "Description of my project",
+									"img": "http://example.com/image.jpg",
+									"url": "http://example.com"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Project"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error"
+					},
+					"401": {
+						"description": "Token error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "Expired or invalid token"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/project/author": {
+			"get": {
+				"summary": "Get all projects by author name",
+				"description": "Route responsible for returning all projects cadastrated in database by authr name.",
+				"tags": ["Projects"],
+				"responses": {
+					"200": {
+						"description": "A list of projects",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ArrayOfProjects"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Project(s) not found"
+					}
+				}
+			}
+		},
+		"/project/{id}": {
+			"get": {
+				"summary": "Search project by id",
+				"description": "Route responsible for searching project by id.",
+				"tags": ["Projects"],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"schema": {
+							"type": "string"
+						},
+						"description": "project ID",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Project"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Project not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "Project(s) not found"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+        "summary": "Update a project",
+				"description": "Route responsible for update a Project on database searching by ID",
+				"tags": ["Projects"],
+				"security": [{ "bearerAuth": [] }],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Project"
+							},
+							"examples": {
+								"Project": {
+									"name": "My Project",
+									"author": "John Smith",
+									"description": "Description of my project",
+									"img": "http://example.com/image.jpg",
+									"url": "http://example.com"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Sucessfull project update",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Project"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error"
+					},
+					"401": {
+						"description": "Token error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "Expired or invalid token"
+									}
+								}
+							}
+						}
+					}
+				}
+      },
+			"delete": {}
+		}
+	},
+	"components": {
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		},
+		"schemas": {
+			"Experience": {
+				"type": "object",
+				"properties": {
+					"company": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					},
+					"dateIn": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"dateOut": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"User": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"birthDate": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"socials": {
+						"type": "object",
+						"properties": {
+							"linkedin": {
+								"type": "string"
+							},
+							"github": {
+								"type": "string"
+							},
+							"instagram": {
+								"type": "string"
+							}
+						}
+					},
+					"experiences": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Experience"
+						}
+					}
+				}
+			},
+			"ArrayOfUsers": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/User"
+				}
+			},
+			"Project": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"author": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"img": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					}
+				}
+			},
+			"ArrayOfProjects": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/Project"
+				}
+			},
+			"Login": {
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

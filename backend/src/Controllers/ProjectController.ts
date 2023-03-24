@@ -58,9 +58,9 @@ export default class ProjectController {
     const { id } = this.req.params;
     const user = this.req.body;
     try {
-      const updatedUser = await this.service.updateById(id, user);
+      const updatedProject = await this.service.updateById(id, user);
 
-      return this.res.status(200).json(updatedUser);
+      return this.res.status(200).json(updatedProject);
     } catch (error) {
       return this.next({ ...(error as IError) });
     }

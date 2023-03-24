@@ -10,7 +10,7 @@ export default async function validateToken(req: Request, res: Response, next: N
   if (!token) {
     next({
       type: 'TOKEN_ERROR',
-      message: 'Token not found',
+      message: 'Expired or invalid token',
     });
   }
 

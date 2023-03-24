@@ -5,7 +5,7 @@ import UserODM from '../Models/UserODM';
 import * as bcrypt from 'bcrypt';
 
 const NOT_FOUND_ERROR = {
-  type: 'NOT_FOUND', message: 'User not found',
+  type: 'NOT_FOUND', message: 'User(s) not found',
 } as IError;
 
 export default class UserService {
