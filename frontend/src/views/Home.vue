@@ -4,13 +4,32 @@
       <h2>
         <span class="intro">Hello, i am</span>
         <br />
-        Lucas Otoni
+        {{ user.name }}
       </h2>
-      <span class="role">Desenvolvedor Fullstack</span>
+      <span class="role">{{ user.role }}</span>
     </div>
     <div class="img-container"></div>
   </div>
 </template>
+
+<script lang="ts">
+export default {
+  data() {
+    return {
+      user: {
+        name: '',
+        role: ''
+      }
+    }
+  },
+  mounted() {
+    const userData = localStorage.getItem('user')
+    if (userData) {
+      this.user = JSON.parse(userData)
+    }
+  }
+}
+</script>
 
 <style>
 .home-container {
