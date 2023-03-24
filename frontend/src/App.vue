@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import SideBar from './components/SideBar.vue'
+import axios from 'axios'
 
-const fetchData = async () => {
+async function fetchData() {
   try {
-    const response = await fetch('https://api-portfolio-xi30.onrender.com/user')
-    const user = await response.json()
-    localStorage.setItem('user', JSON.stringify(user))
+    axios
+      .get('https://api-portfolio-xi30.onrender.com/user/641de57b4a585af300538310')
+      .then((response) => {
+        console.log(response.data)
+      })
   } catch (error) {
     console.error(error)
   }
