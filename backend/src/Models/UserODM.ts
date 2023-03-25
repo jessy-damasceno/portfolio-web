@@ -1,6 +1,5 @@
 import { Model, Schema, model, models } from 'mongoose';
 import IUser from '../Interfaces/IUser';
-import IExperience from '../Interfaces/IExperience';
 import AbstractODM from './AbstractODM';
 
 class UserODM extends AbstractODM<IUser> {
@@ -25,8 +24,8 @@ class UserODM extends AbstractODM<IUser> {
         {
           company: { type: String, required: true },
           role: { type: String, required: true },
-          dateIn: { type: Date, required: true },
-          dateOut: { type: Date, required: true },
+          dateIn: { type: String, required: true },
+          dateOut: { type: String, required: true },
           description: { type: String, required: true },
         },
       ],
