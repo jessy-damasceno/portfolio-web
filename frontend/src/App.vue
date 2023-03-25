@@ -10,6 +10,12 @@ async function fetchData() {
       .then((response) => {
         localStorage.setItem('user', JSON.stringify(response.data))
       })
+
+      // axios
+      // .get('https://api-portfolio-xi30.onrender.com/project', {author: 'Jessy'})
+      // .then((response) => {
+      //   localStorage.setItem('projects', JSON.stringify(response.data))
+      // })
   } catch (error) {
     console.error(error)
   }

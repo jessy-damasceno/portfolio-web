@@ -7,61 +7,57 @@
           <font-awesome-icon icon="fa-solid fa-location-dot" class="icon" />
           <div>
             <h3>Location</h3>
-            <span>{{ user.location }}</span>
+            <span>{{ user?.location }}</span>
           </div>
         </div>
         <div class="contact-item">
           <font-awesome-icon icon="fa-solid fa-envelope" class="icon" />
           <div>
             <h3>Email</h3>
-            <span>{{ user.email }}</span>
+            <span>{{ user?.email }}</span>
           </div>
         </div>
       </div>
       <div class="social">
         <h3>Find me on</h3>
         <div class="contact-icons">
-          <a :href="user.socials.instagram" target="_blank"
+          <a :href="user?.socials.instagram" target="_blank"
             ><font-awesome-icon class="insta" icon="fa-brands fa-instagram"
           /></a>
-          <a :href="user.socials.github" target="_blank"
+          <a :href="user?.socials.github" target="_blank"
             ><font-awesome-icon class="git" icon="fa-brands fa-github"
           /></a>
-          <a :href="user.socials.linkedin" target="_blank"
+          <a :href="user?.socials.linkedin" target="_blank"
             ><font-awesome-icon class="linkedin" icon="fa-brands fa-linkedin-in"
           /></a>
         </div>
       </div>
     </div>
     <form class="email-form">
-      <input type="text" id="name" />
-      <input type="email" id="name" />
-      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <input type="text" id="name" placeholder="Your name" />
+      <input type="email" id="name" placeholder="Email" />
+      <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
       <button class="button button-form">Send</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
+import { ref, onMounted } from 'vue'
+import type IUser from '../interfaces/IUser'
+
 export default {
-  data() {
-    return {
-      user: {
-        email: '',
-        location: '',
-        socials: {
-          linkedin: '',
-          github: '',
-          instagram: ''
-        }
+  setup() {
+    const user = ref<IUser>()
+    
+    onMounted(() => {
+      const userData = localStorage.getItem('user')
+      if (userData) {
+        user.value = JSON.parse(userData)
       }
-    }
-  },
-  mounted() {
-    const userData = localStorage.getItem('user')
-    if (userData) {
-      this.user = JSON.parse(userData)
-    }
+    })
+    
+    return { user }
   }
 }
 </script>
@@ -128,7 +124,7 @@ export default {
 }
 
 .contact span {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .email-form {

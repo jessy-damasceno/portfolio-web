@@ -4,9 +4,8 @@
     <div class="skills-container">
       <div v-for="(skill, type) in skills" :key="type" class="type-container">
         <h3 class="type-title">{{ type }}</h3>
-        <div v-for="(e, index) in skill" :key="index">
-          <!-- <img src="{{ skill.img }}" alt=""> -->
-          <div class="logo"></div>
+        <div v-for="(e, index) in skill" :key="index" class="skill">
+          <img src="../assets/logo_jessy.png" alt="">
           <span>{{ e.name }}</span>
         </div>
       </div>
@@ -70,6 +69,17 @@ export default {
 </script>
 
 <style>
+.skill {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.skill img {
+  height: 150px;
+  width: auto;
+}
+
 .skills {
   width: 100vw;
 }

@@ -1,6 +1,8 @@
 <template>
   <nav class="nav-container">
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="../assets/logo_jessy.png" alt="">
+    </div>
     <div class="nav-links">
       <a
         v-for="(link, index) in links"
@@ -36,7 +38,6 @@ export default {
       { label: 'About', url: '/about' },
       { label: 'Skills', url: '/skills' },
       { label: 'Experience', url: '/experience' },
-      { label: 'Education', url: '/education' },
       { label: 'Projects', url: '/projects' },
       { label: 'Contact', url: '/contact' }
     ]
@@ -76,9 +77,13 @@ export default {
 }
 
 .logo {
-  background-color: white;
   height:150px;
   width: 150px; 
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
 }
 
 .nav-links {

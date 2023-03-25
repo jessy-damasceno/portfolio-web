@@ -79,3 +79,25 @@ h1, h2, h3, h4, h5 { font-weight: 400; font-family: 'Oswald', sans-serif; color:
   color: #ffffff;
   transition-duration: 0.2s;
 }
+
+.img-float {
+  animation-name: float;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
