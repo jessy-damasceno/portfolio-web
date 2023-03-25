@@ -25,11 +25,6 @@ const router = createRouter({
       component: components.Experience
     },
     {
-      path: '/education',
-      name: 'education',
-      component: components.Education
-    },
-    {
       path: '/projects',
       name: 'projects',
       component: components.Portfolio

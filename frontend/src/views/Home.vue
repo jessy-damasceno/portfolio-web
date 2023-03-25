@@ -4,18 +4,45 @@
       <h2>
         <span class="intro">Hello, i am</span>
         <br />
-        Lucas Otoni
+        {{ user?.name }}
       </h2>
-      <span class="role">Desenvolvedor Fullstack</span>
+      <span class="role">{{ user?.role }}</span>
     </div>
-    <div class="img-container"></div>
+    <div class="img-container">
+      <img class="img-float" src="../assets/logo_jessy.png" alt="logo">
+    </div>
   </div>
 </template>
 
+<script lang="ts">
+import { ref, onMounted } from 'vue'
+import type IUser from '../interfaces/IUser'
+
+export default {
+  setup() {
+    const user = ref<IUser>()
+    
+    onMounted(() => {
+      const userData = localStorage.getItem('user')
+      if (userData) {
+        user.value = JSON.parse(userData)
+      }
+    })
+    
+    return { user }
+  }
+}
+</script>
+
 <style>
 .home-container {
-    margin: 20% 0 0 0;
+    /* margin: 0 auto; */
     padding: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 70vw;
+    height: 95vh;
 }
 
 .intro {
@@ -25,6 +52,10 @@
     overflow: hidden;
     animation: typing 2s steps(30, end);
     white-space: nowrap;
+}
+
+.title {
+  width: 50%;
 }
 
 @keyframes typing {
@@ -50,5 +81,15 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 30px;
+}
+
+.img-container {
+  width: 50%;
+}
+
+.img-container img {
+  max-width: 100%;
+  height: auto;
+  display: flex;
 }
 </style>
