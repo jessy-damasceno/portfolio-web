@@ -13,6 +13,7 @@ class UserODM extends AbstractODM<IUser> {
       email: { type: String, required: true },
       password: { type: String, required: true },
       location: { type: String, required: true },
+      birthDate: { type: String, required: true },
       role: { type: String, required: true },
       socials: {
         linkedin: { type: String, required: true },

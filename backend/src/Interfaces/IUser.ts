@@ -8,7 +8,7 @@ export default interface IUser {
   location: string;
   role: string;
   description: string;
-  birthDate: Date;
+  birthDate: string;
   socials: {
     linkedin: string;
     github: string;

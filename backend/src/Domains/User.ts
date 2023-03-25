@@ -6,6 +6,7 @@ export default class User {
   private name: string;
   private email: string;
   private location: string;
+  private birthDate: string;
   private role: string;
   private socials: object;
   private description: string;
@@ -16,6 +17,7 @@ export default class User {
     this.name = user.name;
     this.email = user.email;
     this.location = user.location;
+    this.birthDate = user.birthDate;
     this.role = user.role;
     this.socials = user.socials;
     this.description = user.description;
@@ -48,6 +50,14 @@ export default class User {
 
   public setLocation(location: string): void {
     this.location = location;
+  }
+
+  public getBirthDate(): string {
+    return this.birthDate;
+  }
+
+  public setBirthDate(birthDate: string): void {
+    this.birthDate = birthDate;
   }
 
   public getRole(): string {
