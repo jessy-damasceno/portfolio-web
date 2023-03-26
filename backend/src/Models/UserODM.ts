@@ -25,7 +25,7 @@ class UserODM extends AbstractODM<IUser> {
           company: { type: String, required: true },
           role: { type: String, required: true },
           dateIn: { type: String, required: true },
-          dateOut: { type: String, required: true },
+          dateOut: { type: String },
           description: { type: String, required: true },
         },
       ],

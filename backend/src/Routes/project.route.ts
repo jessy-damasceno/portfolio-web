@@ -22,7 +22,7 @@ projectRouter.put(
   '/:id',
   validateToken,
   validateNewProject,
-  (req, res, next) => new ProjectController(req, res, next).findByIdAndUpdate
+  (req, res, next) => new ProjectController(req, res, next).findByIdAndUpdate()
   );
 
 projectRouter

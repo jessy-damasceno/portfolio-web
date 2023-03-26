@@ -353,6 +353,17 @@
 				"description": "Route responsible for update a Project on database searching by ID",
 				"tags": ["Projects"],
 				"security": [{ "bearerAuth": [] }],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"schema": {
+							"type": "string"
+						},
+						"description": "project ID",
+						"required": true
+					}
+				],
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -400,7 +411,44 @@
 					}
 				}
       },
-			"delete": {}
+			"delete": {
+				"summary": "Delete a project",
+				"description": "Route responsible for delete a Project on database by ID project",
+				"tags": ["Projects"],
+				"security": [{ "bearerAuth": [] }],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"schema": {
+							"type": "string"
+						},
+						"description": "project ID",
+						"required": true
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "Project deleted with sucess"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					},
+					"401": {
+						"description": "Token error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"message": "Expired or invalid token"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"components": {
