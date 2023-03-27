@@ -33,33 +33,35 @@
         </div>
       </div>
     </div>
-    <form class="email-form">
-      <input type="text" id="name" placeholder="Your name" />
-      <input type="email" id="name" placeholder="Email" />
-      <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-      <button class="button button-form">Send</button>
+    <form action="https://api.staticforms.xyz/submit" method="post" class="email-form">
+      <input type="hidden" name="accessKey" value="514817fa-27a8-4a74-b839-55d1d0dd7222" />
+      <input required type="text" name="name" placeholder="Your name" />
+      <input required type="email" name="email" placeholder="Email" />
+      <textarea required name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
+      <input type="hidden" name="redirectTo" value="http://localhost:5173/contact" />
+      <button type="submit" value="submit" class="button button-form">Send</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
-import type IUser from '../interfaces/IUser'
+import { ref, onBeforeMount } from 'vue';
+import type IUser from '../interfaces/IUser';
 
 export default {
   setup() {
-    const user = ref<IUser>()
-    
-    onMounted(() => {
-      const userData = localStorage.getItem('user')
+    const user = ref<IUser>();
+
+    onBeforeMount(() => {
+      const userData = localStorage.getItem('user');
       if (userData) {
-        user.value = JSON.parse(userData)
+        user.value = JSON.parse(userData);
       }
-    })
-    
-    return { user }
+    });
+
+    return { user };
   }
-}
+};
 </script>
 
 <style>

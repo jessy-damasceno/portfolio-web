@@ -2,7 +2,11 @@
   <div class="container">
     <title-component :skills="'Experience'" />
     <div class="experience-container">
-      <div v-for="(experience, index) in user?.experiences" :key="index" class="experiences-container">
+      <div
+        v-for="(experience, index) in user?.experiences"
+        :key="index"
+        class="experiences-container"
+      >
         <div class="first">
           <h4>{{ experience.company }}</h4>
           <h2>{{ experience.role }}</h2>
@@ -15,23 +19,23 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
-import type IUser from '../interfaces/IUser'
+import { ref, onBeforeMount } from 'vue';
+import type IUser from '../interfaces/IUser';
 
 export default {
   setup() {
-    const user = ref<IUser>()
-    
-    onMounted(() => {
-      const userData = localStorage.getItem('user')
+    const user = ref<IUser>();
+
+      onBeforeMount(() => {
+      const userData = localStorage.getItem('user');
       if (userData) {
-        user.value = JSON.parse(userData)
+        user.value = JSON.parse(userData);
       }
-    })
-    
-    return { user }
+    });
+
+    return { user };
   }
-}
+};
 </script>
 
 <style>
@@ -44,7 +48,7 @@ export default {
   padding: 40px 25px;
   align-items: center;
   width: 100%;
-  border-top: 1px solid rgba(235, 235, 235, 0.1) ;
+  border-top: 1px solid rgba(235, 235, 235, 0.1);
   text-align: justify;
 }
 
@@ -63,10 +67,10 @@ export default {
   border-radius: 10px;
 }
 .experience-container::-webkit-scrollbar-thumb {
-  background:  #ee6817;
+  background: #ee6817;
   border-radius: 10px;
 }
 .experience-container::-webkit-scrollbar-thumb:hover {
-  background:  #b44a08;
+  background: #b44a08;
 }
 </style>

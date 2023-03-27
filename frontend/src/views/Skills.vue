@@ -5,7 +5,7 @@
       <div v-for="(skill, type) in skills" :key="type" class="type-container">
         <h3 class="type-title">{{ type }}</h3>
         <div v-for="(e, index) in skill" :key="index" class="skill">
-          <img src="../assets/logo_jessy.png" alt="">
+          <img src="../assets/logo_jessy.png" alt="" />
           <span>{{ e.name }}</span>
         </div>
       </div>
@@ -14,18 +14,18 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 interface Skill {
-  img: string
-  name: string
-  title: string
+  img: string;
+  name: string;
+  title: string;
 }
 
 interface Skills {
-  front: Skill[]
-  back: Skill[]
+  front: Skill[];
+  back: Skill[];
 }
 
 export default {
@@ -59,13 +59,13 @@ export default {
         { img: 'About', name: 'BACK', title: 'back' },
         { img: 'About', name: 'BACK', title: 'back' }
       ]
-    }
+    };
 
     return {
       skills
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
