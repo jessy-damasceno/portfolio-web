@@ -36,8 +36,8 @@ export default class ProjectController {
 
   public async getByAuthor() {
     try {
-      const { author } = this.req.body;
-      const projects = await this.service.findByAuthor(author);
+      const { author } = this.req.query;
+      const projects = await this.service.findByAuthor(author as string);
       return this.res.status(StatusCodes.OK).json(projects);
     } catch (err) {
       return this.next({ ...(err as IError) });

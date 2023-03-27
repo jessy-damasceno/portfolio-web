@@ -28,9 +28,12 @@ export default class ProjectService {
     throw NOT_FOUND_ERROR;
   }
 
-  public async findByAuthor(author: string): Promise<Project[] | null> {
+  public async findByAuthor(author: string | undefined): Promise<Project[] | null> {
     const projectODM = new ProjectODM();
-    const projects = await projectODM.findByAuthor(author);
+    let projects: IProject[] = [];
+    if (author) {
+      projects = await projectODM.findByAuthor(author);
+    }
 
     if (projects.length) return projects.map(this.createProjectDomain);
 

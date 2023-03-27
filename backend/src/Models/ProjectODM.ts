@@ -29,7 +29,10 @@ class ProjectODM extends AbstractODM<IProject> {
   }
 
   public async findByAuthor(author: string) {
-    return this.model.find({ author });
+    const regex = new RegExp(author, 'i');
+    return this.model.find({ author: {
+      $regex: regex
+    } });
   }
 }
 export default ProjectODM;

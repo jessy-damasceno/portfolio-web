@@ -5,7 +5,7 @@ import validateToken from '../middlewares/validateToken';
 
 const projectRouter = Router();
 
-projectRouter.get('/author', (req, res, next) =>
+projectRouter.get('/search', (req, res, next) =>
   new ProjectController(req, res, next).getByAuthor()
 );
 
