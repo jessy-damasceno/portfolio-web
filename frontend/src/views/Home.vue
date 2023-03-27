@@ -9,49 +9,49 @@
       <span class="role">{{ user?.role }}</span>
     </div>
     <div class="img-container">
-      <img class="img-float" src="../assets/logo_jessy.png" alt="logo">
+      <img class="img-float" src="../assets/logo_jessy.png" alt="logo" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
-import type IUser from '../interfaces/IUser'
+import { ref, onBeforeMount } from 'vue';
+import type IUser from '../interfaces/IUser';
 
 export default {
   setup() {
-    const user = ref<IUser>()
-    
-    onMounted(() => {
-      const userData = localStorage.getItem('user')
+    const user = ref<IUser>();
+
+      onBeforeMount(() => {
+      const userData = localStorage.getItem('user');
       if (userData) {
-        user.value = JSON.parse(userData)
+        user.value = JSON.parse(userData);
       }
-    })
-    
-    return { user }
+    });
+
+    return { user };
   }
-}
+};
 </script>
 
 <style>
 .home-container {
-    /* margin: 0 auto; */
-    padding: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 70vw;
-    height: 95vh;
+  /* margin: 0 auto; */
+  padding: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 70vw;
+  height: 95vh;
 }
 
 .intro {
-    font-weight: 300;
-    font-size: 50px;
-    display: inline-block;
-    overflow: hidden;
-    animation: typing 2s steps(30, end);
-    white-space: nowrap;
+  font-weight: 300;
+  font-size: 50px;
+  display: inline-block;
+  overflow: hidden;
+  animation: typing 2s steps(30, end);
+  white-space: nowrap;
 }
 
 .title {
@@ -59,8 +59,12 @@ export default {
 }
 
 @keyframes typing {
-  from { width: 0% }
-  to { width: 100% }
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .title h2 {

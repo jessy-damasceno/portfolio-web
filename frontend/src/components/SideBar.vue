@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Navigator from './Navigator.vue'
+import Navigator from './Navigator.vue';
 </script>
 
 <template>

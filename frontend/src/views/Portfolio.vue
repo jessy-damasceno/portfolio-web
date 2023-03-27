@@ -22,57 +22,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+import { ref, onBeforeMount, reactive } from 'vue';
+import type IProject from '../interfaces/IProject';
 
-interface Project {
-  url: string
-  name: string
-  description: string
-  showDetails: boolean
-  img: string
-}
-
-export default defineComponent({
+export default {
   setup() {
-    const projects: Project[] = reactive([
-      {
-        img: 'https://picsum.photos/500/300?random=1',
-        name: 'Project One',
-        description: 'This is the first project description.',
-        showDetails: false,
-        url: 'https://google.com'
-      },
-      {
-        img: 'https://picsum.photos/500/300?random=2',
-        name: 'Project Two',
-        description: 'This is the second project description.',
-        showDetails: false,
-        url: 'https://google.com'
-      },
-      {
-        img: 'https://picsum.photos/500/300?random=3',
-        name: 'Project Three',
-        description: 'This is the third project description.',
-        showDetails: false,
-        url: 'https://google.com'
-      }
-    ])
+    const projects = ref<IProject[]>([]);
 
-    const showDetails = (index: number) => {
-      projects[index].showDetails = true
+      onBeforeMount(() => {
+      const projectsData = localStorage.getItem('projects');
+      if (projectsData) {
+        projects.value = JSON.parse(projectsData) as IProject[];
+      }
+    });
+
+    function showDetails(index: number) {
+      projects.value[index].showDetails = true;
     }
 
-    const hideDetails = (index: number) => {
-      projects[index].showDetails = false
+    function hideDetails(index: number) {
+      projects.value[index].showDetails = false;
     }
 
     return {
       projects,
       showDetails,
       hideDetails
-    }
+    };
   }
-})
+};
 </script>
 
 <style>
@@ -121,14 +99,17 @@ export default defineComponent({
   width: 8px;
   height: 16px;
 }
+
 .projects-container::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
+
 .projects-container::-webkit-scrollbar-thumb {
   background: #ee6817;
   border-radius: 10px;
 }
+
 .projects-container::-webkit-scrollbar-thumb:hover {
   background: #b44a08;
 }

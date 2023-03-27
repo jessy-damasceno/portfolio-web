@@ -20,23 +20,23 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted } from 'vue'
-import type IUser from '../interfaces/IUser'
+import { ref, onBeforeMount } from 'vue';
+import type IUser from '../interfaces/IUser';
 
 export default {
   setup() {
-    const user = ref<IUser>()
-    
-    onMounted(() => {
-      const userData = localStorage.getItem('user')
+    const user = ref<IUser>();
+
+    onBeforeMount(() => {
+      const userData = localStorage.getItem('user');
       if (userData) {
-        user.value = JSON.parse(userData)
+        user.value = JSON.parse(userData);
       }
-    })
-    
-    return { user }
+    });
+
+    return { user };
   }
-}
+};
 </script>
 
 <style>

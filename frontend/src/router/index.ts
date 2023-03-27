@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import * as components from '../views'
+import { createRouter, createWebHistory } from 'vue-router';
+import * as components from '../views';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,8 +33,8 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: components.Contact
-    },
+    }
   ]
-})
+});
 
-export default router
+export default router;

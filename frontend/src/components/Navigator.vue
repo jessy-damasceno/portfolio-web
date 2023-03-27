@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-container">
     <div class="logo">
-      <img src="../assets/logo_jessy.png" alt="">
+      <img src="../assets/logo_jessy.png" alt="" />
     </div>
     <div class="nav-links">
       <a
@@ -15,20 +15,24 @@
       </a>
     </div>
     <div class="social-icons">
-      <a href="https://github.com/"><font-awesome-icon class="insta" icon="fa-brands fa-instagram"/></a>
+      <a href="https://github.com/"
+        ><font-awesome-icon class="insta" icon="fa-brands fa-instagram"
+      /></a>
       <a href="https://github.com/"><font-awesome-icon class="git" icon="fa-brands fa-github" /></a>
-      <a href="https://github.com/"><font-awesome-icon class="linkedin" icon="fa-brands fa-linkedin-in" /></a>
+      <a href="https://github.com/"
+        ><font-awesome-icon class="linkedin" icon="fa-brands fa-linkedin-in"
+      /></a>
     </div>
   </nav>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 interface Link {
-  label: string
-  url: string
+  label: string;
+  url: string;
 }
 
 export default {
@@ -40,16 +44,16 @@ export default {
       { label: 'Experience', url: '/experience' },
       { label: 'Projects', url: '/projects' },
       { label: 'Contact', url: '/contact' }
-    ]
+    ];
 
-    const activeLink = ref<number>(0)
-    const router = useRouter()
-    const route = useRoute()
+    const activeLink = ref<number>(0);
+    const router = useRouter();
+    const route = useRoute();
 
     function activateLink(index: number, url: string) {
-      activeLink.value = index
+      activeLink.value = index;
       if (url !== route.path) {
-        router.push(url)
+        router.push(url);
       }
     }
 
@@ -57,9 +61,9 @@ export default {
       links,
       activateLink,
       activeLink
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
@@ -77,8 +81,8 @@ export default {
 }
 
 .logo {
-  height:150px;
-  width: 150px; 
+  height: 150px;
+  width: 150px;
 }
 
 .logo img {
@@ -130,7 +134,7 @@ export default {
 }
 
 .insta:hover {
-  color: #E1306C ;
+  color: #e1306c;
 }
 
 .git:hover {
@@ -138,6 +142,6 @@ export default {
 }
 
 .linkedin:hover {
-  color: #1DA1F2;
+  color: #1da1f2;
 }
 </style>

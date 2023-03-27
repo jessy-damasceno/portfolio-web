@@ -4,10 +4,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 interface Props {
-  skills: string
+  skills: string;
 }
 
 export default defineComponent({
@@ -18,13 +18,13 @@ export default defineComponent({
     }
   },
   setup(props: Props) {
-    const skills = ref(props.skills)
+    const skills = ref(props.skills);
 
     return {
       skills
-    }
+    };
   }
-})
+});
 </script>
 
 <style>
