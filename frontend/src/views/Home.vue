@@ -9,7 +9,7 @@
       <span class="role">{{ user?.role }}</span>
     </div>
     <div class="img-container">
-      <img class="img-float" src="../assets/logo_jessy.png" alt="logo" />
+      <img class="img-float" src="../assets/logo_lucas.png" alt="logo" />
     </div>
   </div>
 </template>
@@ -89,10 +89,11 @@ export default {
 
 .img-container {
   width: 50%;
+  align-self: end;
 }
 
 .img-container img {
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
   display: flex;
 }

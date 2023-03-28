@@ -6,13 +6,13 @@ import axios from 'axios';
 async function fetchData() {
   try {
     axios
-      .get('https://api-portfolio-xi30.onrender.com/user/641de57b4a585af300538310')
+      .get('https://api-portfolio-xi30.onrender.com/user/6421f658ea7240b7b4b5010b')
       .then((response) => {
         localStorage.setItem('user', JSON.stringify(response.data));
       });
 
     axios
-      .get('https://api-portfolio-xi30.onrender.com/project/search?author=jessy')
+      .get('https://api-portfolio-xi30.onrender.com/project/search?author=lucas')
       .then((response) => {
         localStorage.setItem('projects', JSON.stringify(response.data));
       });

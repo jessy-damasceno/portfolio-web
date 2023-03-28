@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-container">
     <div class="logo">
-      <img src="../assets/logo_jessy.png" alt="" />
+      <img src="../assets/logo_lucas.png" alt="" />
     </div>
     <div class="nav-links">
       <a
@@ -83,10 +83,12 @@ export default {
 .logo {
   height: 150px;
   width: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .logo img {
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
 }
 

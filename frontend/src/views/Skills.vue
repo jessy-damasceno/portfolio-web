@@ -5,7 +5,7 @@
       <div v-for="(skill, type) in skills" :key="type" class="type-container">
         <h3 class="type-title">{{ type }}</h3>
         <div v-for="(e, index) in skill" :key="index" class="skill">
-          <img src="../assets/logo_jessy.png" alt="" />
+          <img v-bind:src="e.img" alt="" />
           <span>{{ e.name }}</span>
         </div>
       </div>
@@ -14,8 +14,6 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
 
 interface Skill {
   img: string;
@@ -32,23 +30,19 @@ export default {
   setup() {
     const skills: Skills = {
       front: [
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' },
-        { img: 'Home', name: 'FRONT', title: 'front' }
+        { img: 'public/iconJs1.svg', name: 'JavaScript', title: 'front' },
+        { img: 'public/iconTs.svg', name: 'TypeScript', title: 'front' },
+        { img: 'public/icons8-vuejs.svg', name: 'Vue', title: 'front' },
+        { img: 'public/iconReact.svg', name: 'React', title: 'front' },
+        { img: 'public/iconRedux.svg', name: 'Redux', title: 'front' },
+        { img: 'public/iconHtml.svg', name: 'Html', title: 'front' },
+        { img: 'public/iconCss.svg', name: 'Css', title: 'front' },
+        { img: 'public/icons8-tailwindcss.svg', name: 'Tailwind', title: 'front' },
       ],
       back: [
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
+        { img: 'public/iconTs.svg', name: 'TypeScript', title: 'back' },
+        { img: 'public/iconPython.svg', name: 'Python', title: 'back' },
+        { img: 'public/iconMysql.svg', name: 'MySQL', title: 'back' },
         { img: 'About', name: 'BACK', title: 'back' },
         { img: 'About', name: 'BACK', title: 'back' },
         { img: 'About', name: 'BACK', title: 'back' },
