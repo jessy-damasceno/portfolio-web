@@ -30,28 +30,22 @@ export default {
   setup() {
     const skills: Skills = {
       front: [
-        { img: 'public/iconJs1.svg', name: 'JavaScript', title: 'front' },
-        { img: 'public/iconTs.svg', name: 'TypeScript', title: 'front' },
-        { img: 'public/icons8-vuejs.svg', name: 'Vue', title: 'front' },
-        { img: 'public/iconReact.svg', name: 'React', title: 'front' },
-        { img: 'public/iconRedux.svg', name: 'Redux', title: 'front' },
-        { img: 'public/iconHtml.svg', name: 'Html', title: 'front' },
-        { img: 'public/iconCss.svg', name: 'Css', title: 'front' },
-        { img: 'public/icons8-tailwindcss.svg', name: 'Tailwind', title: 'front' },
+        { img: '/iconJs.svg', name: 'JavaScript', title: 'front' },
+        { img: '/iconTs.svg', name: 'TypeScript', title: 'front' },
+        { img: '/icons8-vuejs.svg', name: 'Vue', title: 'front' },
+        { img: '/iconReact.svg', name: 'React', title: 'front' },
+        { img: '/iconRedux.svg', name: 'Redux', title: 'front' },
+        { img: '/iconHtml.svg', name: 'Html', title: 'front' },
+        { img: '/iconCss.svg', name: 'Css', title: 'front' },
+        { img: '/icons8-tailwindcss.svg', name: 'Tailwind', title: 'front' },
       ],
       back: [
-        { img: 'public/iconTs.svg', name: 'TypeScript', title: 'back' },
-        { img: 'public/iconPython.svg', name: 'Python', title: 'back' },
-        { img: 'public/iconMysql.svg', name: 'MySQL', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' },
-        { img: 'About', name: 'BACK', title: 'back' }
+        { img: '/iconTs.svg', name: 'TypeScript', title: 'back' },
+        { img: '/iconPython.svg', name: 'Python', title: 'back' },
+        { img: '/iconMysql.svg', name: 'MySQL', title: 'back' },
+        { img: '/iconNodejs.svg', name: 'NodeJs', title: 'back' },
+        { img: '/iconDocker.svg', name: 'Docker', title: 'back' },
+        { img: '/iconMongodb.svg', name: 'Mongodb', title: 'back' },
       ]
     };
 

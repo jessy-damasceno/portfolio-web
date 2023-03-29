@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 import SideBar from './components/SideBar.vue';
+import HeaderComponent from './components/HeaderComponent.vue';
 import axios from 'axios';
 
 async function fetchData() {
@@ -25,6 +26,11 @@ fetchData();
 </script>
 
 <template>
-  <SideBar />
-  <RouterView />
+  <div style="display: flex; flex-direction:column;">
+    <HeaderComponent />
+    <div style="display: flex;">
+      <SideBar />
+      <RouterView />
+    </div>
+  </div>
 </template>

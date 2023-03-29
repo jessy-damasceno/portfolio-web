@@ -1,12 +1,13 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["frontend/env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["frontend/env.d.ts", "src/**/*", "src/**/*.vue", "vue-burger-menu.d.ts", "vue-burger-menu.d.ts"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "typeRoots": ["./@types"] 
   }
 }

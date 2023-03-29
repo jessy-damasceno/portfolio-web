@@ -13,7 +13,7 @@
       </div>
       <div class="vertical-line"></div>
       <div class="personal-info">
-        <p>{{ user?.description }}</p>
+        <p v-html="user?.description"></p>
       </div>
     </div>
   </div>
@@ -30,7 +30,8 @@ export default {
     onBeforeMount(() => {
       const userData = localStorage.getItem('user');
       if (userData) {
-        user.value = JSON.parse(userData);
+        user.value = JSON.parse(userData) as IUser;
+        user.value.description = user.value.description.replace(/\n/g, '<br>');
       }
     });
 
@@ -72,7 +73,7 @@ export default {
 
 .personal-info {
   width: 50%;
-  text-align: center;
+  text-align: start;
   font-size: 24px;
   line-height: 28px;
 }

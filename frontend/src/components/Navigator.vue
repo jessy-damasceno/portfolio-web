@@ -36,33 +36,30 @@ interface Link {
 }
 
 export default {
-  setup() {
-    const links: Link[] = [
-      { label: 'Home', url: '/' },
-      { label: 'About', url: '/about' },
-      { label: 'Skills', url: '/skills' },
-      { label: 'Experience', url: '/experience' },
-      { label: 'Projects', url: '/projects' },
-      { label: 'Contact', url: '/contact' }
-    ];
-
-    const activeLink = ref<number>(0);
-    const router = useRouter();
-    const route = useRoute();
-
-    function activateLink(index: number, url: string) {
-      activeLink.value = index;
-      if (url !== route.path) {
-        router.push(url);
-      }
-    }
-
-    return {
-      links,
-      activateLink,
-      activeLink
-    };
-  }
+    setup() {
+        const links: Link[] = [
+            { label: "Home", url: "/" },
+            { label: "About", url: "/about" },
+            { label: "Skills", url: "/skills" },
+            { label: "Experience", url: "/experience" },
+            { label: "Projects", url: "/projects" },
+            { label: "Contact", url: "/contact" }
+        ];
+        const activeLink = ref<number>(0);
+        const router = useRouter();
+        const route = useRoute();
+        function activateLink(index: number, url: string) {
+            activeLink.value = index;
+            if (url !== route.path) {
+                router.push(url);
+            }
+        }
+        return {
+            links,
+            activateLink,
+            activeLink
+        };
+    },
 };
 </script>
 

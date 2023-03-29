@@ -36,7 +36,6 @@ export default {
 
 <style>
 .home-container {
-  /* margin: 0 auto; */
   padding: 70px;
   display: flex;
   justify-content: space-between;
