@@ -14,7 +14,6 @@
 </template>
 
 <script lang="ts">
-
 interface Skill {
   img: string;
   name: string;
@@ -37,7 +36,7 @@ export default {
         { img: '/iconRedux.svg', name: 'Redux', title: 'front' },
         { img: '/iconHtml.svg', name: 'Html', title: 'front' },
         { img: '/iconCss.svg', name: 'Css', title: 'front' },
-        { img: '/icons8-tailwindcss.svg', name: 'Tailwind', title: 'front' },
+        { img: '/icons8-tailwindcss.svg', name: 'Tailwind', title: 'front' }
       ],
       back: [
         { img: '/iconTs.svg', name: 'TypeScript', title: 'back' },
@@ -45,7 +44,7 @@ export default {
         { img: '/iconMysql.svg', name: 'MySQL', title: 'back' },
         { img: '/iconNodejs.svg', name: 'NodeJs', title: 'back' },
         { img: '/iconDocker.svg', name: 'Docker', title: 'back' },
-        { img: '/iconMongodb.svg', name: 'Mongodb', title: 'back' },
+        { img: '/iconMongodb.svg', name: 'Mongodb', title: 'back' }
       ]
     };
 
@@ -74,7 +73,7 @@ export default {
 
 .skills-container {
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-around;
 }
 
@@ -109,5 +108,41 @@ export default {
 }
 .type-container::-webkit-scrollbar-thumb:hover {
   background: #b44a08;
+}
+
+@media (max-width: 1550px) {
+  .skills {
+    overflow-y: scroll;
+  }
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-around;
+    gap: 70px;
+  }
+
+  .type-container {
+    width: 100%;
+    overflow-y: hidden;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .type-title {
+    padding: 15px;
+    color: rgb(13, 13, 13);
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 768px) {
+  .type-title {
+    color: #AAAAAA;
+  }
+  .skill img {
+    height: 60px;
+    width: auto;
+  }
 }
 </style>
