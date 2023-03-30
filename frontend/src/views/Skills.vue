@@ -143,6 +143,7 @@ export default {
   .skill img {
     height: 60px;
     width: auto;
+    /* oi */
   }
 }
 </style>
