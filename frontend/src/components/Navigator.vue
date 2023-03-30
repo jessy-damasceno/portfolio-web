@@ -143,4 +143,22 @@ export default {
 .linkedin:hover {
   color: #1da1f2;
 }
+
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-container {
+    display: flex;
+  }
+}
 </style>

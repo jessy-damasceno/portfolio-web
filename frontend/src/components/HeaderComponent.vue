@@ -1,12 +1,12 @@
 <template>
-  <div style="height: 24px; z-index: 9999; display: none;">
+  <div class="header-container">
     <div class="header">
-        <img src="../assets/logo_lucas.png" alt="" />
-        <button class="hamburguer" @click="toggleMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      <img src="../assets/logo_lucas.png" alt="" />
+      <button class="hamburguer" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <transition name="slide-down">
       <div v-if="isOpen" class="menu-container">
@@ -165,4 +165,29 @@ export default defineComponent({
 .slide-down-leave-to {
   transform: translateY(-100%);
 }
+
+.header-container {
+  height: 24px;
+  z-index: 9999;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-container {
+    display: none;
+  }
+}
+
 </style>

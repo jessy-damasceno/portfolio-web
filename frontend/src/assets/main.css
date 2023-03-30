@@ -95,6 +95,15 @@ h5 {
   animation-iteration-count: infinite;
 }
 
+@media (max-width: 640px) { 
+  .img-float {
+    animation-name: none;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
+
 @keyframes float {
   0% {
     transform: translateY(0);

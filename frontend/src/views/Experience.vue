@@ -38,14 +38,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .first {
   min-width: 300px;
 }
 
 .experiences-container {
   display: flex;
-  padding: 40px 25px;
+  padding: 40px 20px;
   align-items: center;
   width: 100%;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
@@ -72,5 +72,47 @@ export default {
 }
 .experience-container::-webkit-scrollbar-thumb:hover {
   background: #b44a08;
+}
+
+@media (max-width: 768px) {
+  .experiences-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-right: 100px;
+}
+
+.experience-container {
+  height: 100vh;
+  max-width: 1200px;
+  width: 90vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 50px 0px;
+  }
+  .experiences-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  /* margin-right: 20px; */
+  padding: 10px;
+  text-align: center;
+}
+
+.experience-container {
+  height: 75vh;
+  max-width: 1200px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 }
 </style>
