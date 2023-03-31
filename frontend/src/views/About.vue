@@ -10,7 +10,7 @@
           <li><span>Nationality:</span> {{ user?.location }}</li>
         </ul>
         <div class="info-button">
-          <button class="button">DOWNLOAD RESUME AS PDF FORMAT</button>
+          <button @click="openPDF" class="button">DOWNLOAD RESUME AS PDF FORMAT</button>
         </div>
       </div>
       <div class="vertical-line"></div>
@@ -26,6 +26,11 @@ import { ref, onBeforeMount } from 'vue';
 import type IUser from '../interfaces/IUser';
 
 export default {
+  methods: {
+    openPDF() {
+      window.open('/Curriculo_Atualizado.pdf', '_blank')
+    }
+  },
   setup() {
     const user = ref<IUser>();
 

@@ -12,10 +12,12 @@
       <div v-if="isOpen" class="menu-container">
         <nav class="menu-nav">
           <ul>
-            <li><a href="#">Página Inicial</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Produtos</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/skills">Skills</a></li>
+            <li><a href="/experience">Experience</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -151,7 +153,9 @@ export default defineComponent({
   display: block;
   padding: 10px;
   color: #f8f8f8;
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 8px 0;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }

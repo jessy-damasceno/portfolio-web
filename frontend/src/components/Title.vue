@@ -1,6 +1,8 @@
 <template>
-  <h2 class="title">{{ skills }}</h2>
-  <div class="line"></div>
+  <div>
+    <h2 class="title">{{ skills }}</h2>
+    <div class="line"></div>
+  </div>
 </template>
 
 <script lang="ts">

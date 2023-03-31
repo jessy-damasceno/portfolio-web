@@ -109,6 +109,11 @@ export default {
 .type-container::-webkit-scrollbar-thumb:hover {
   background: #b44a08;
 }
+@media (max-width: 996px) {
+  .skills-container {
+    margin: 0 auto;
+  }
+}
 
 @media (max-width: 1550px) {
   .skills {
@@ -117,7 +122,7 @@ export default {
   .skills-container {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
     justify-content: space-around;
     gap: 70px;
   }
@@ -143,7 +148,10 @@ export default {
   .skill img {
     height: 60px;
     width: auto;
-    /* oi */
+  }
+
+  .skills-container { 
+    margin: 0 auto;
   }
 }
 </style>

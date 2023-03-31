@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <title-component :skills="'Experience'" />
+    <title-component :skills="'Contact'" class="title-container"/>
     <div class="contact-container">
       <div class="contact">
         <div class="contact-item">
@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .contact-container {
   padding: 40px 0;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
@@ -158,5 +158,85 @@ textarea:focus {
 
 .button-form {
   width: 150px;
+}
+
+@media (max-width: 996px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+  }
+
+  .container {
+    width: 100vw;
+  }
+  .contact {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .social {
+    flex-direction: row;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social h3 {
+    display: none;
+  }
+  .contact-icons {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .title-container {
+    align-self: flex-start;
+  }
+  .contact {
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .contact-item, .contact-item div {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    gap: 12px;
+    display: flex;
+  }
+
+  .contact-item {
+    margin-bottom: 24px;
+  }
+
+  .email-form {
+    width: 80%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    overflow-y: scroll;
+  }
+
+  .line {
+    display: flex;
+    margin: 0;
+  }
+
+  .email-form {
+    width: 90vw;
+  }
 }
 </style>
