@@ -12,12 +12,12 @@
       <div v-if="isOpen" class="menu-container">
         <nav class="menu-nav">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/skills">Skills</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="https://lucasotoni.vercel.app/">Home</a></li>
+            <li><a href="https://lucasotoni.vercel.app/about">About</a></li>
+            <li><a href="https://lucasotoni.vercel.app/skills">Skills</a></li>
+            <li><a href="https://lucasotoni.vercel.app/experience">Experience</a></li>
+            <li><a href="https://lucasotoni.vercel.app/projects">Projects</a></li>
+            <li><a href="https://lucasotoni.vercel.app/contact">Contact</a></li>
           </ul>
         </nav>
       </div>
