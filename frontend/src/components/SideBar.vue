@@ -4,7 +4,6 @@ import Navigator from './Navigator.vue';
 
 <template>
   <aside>
-    <!-- <Logo /> -->
     <Navigator />
   </aside>
 </template>

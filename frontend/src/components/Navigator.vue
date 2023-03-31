@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-container">
     <div class="logo">
-      <img src="../assets/logo_jessy.png" alt="" />
+      <img src="../assets/logo_lucas.png" alt="" />
     </div>
     <div class="nav-links">
       <a
@@ -36,33 +36,30 @@ interface Link {
 }
 
 export default {
-  setup() {
-    const links: Link[] = [
-      { label: 'Home', url: '/' },
-      { label: 'About', url: '/about' },
-      { label: 'Skills', url: '/skills' },
-      { label: 'Experience', url: '/experience' },
-      { label: 'Projects', url: '/projects' },
-      { label: 'Contact', url: '/contact' }
-    ];
-
-    const activeLink = ref<number>(0);
-    const router = useRouter();
-    const route = useRoute();
-
-    function activateLink(index: number, url: string) {
-      activeLink.value = index;
-      if (url !== route.path) {
-        router.push(url);
-      }
-    }
-
-    return {
-      links,
-      activateLink,
-      activeLink
-    };
-  }
+    setup() {
+        const links: Link[] = [
+            { label: "Home", url: "/" },
+            { label: "About", url: "/about" },
+            { label: "Skills", url: "/skills" },
+            { label: "Experience", url: "/experience" },
+            { label: "Projects", url: "/projects" },
+            { label: "Contact", url: "/contact" }
+        ];
+        const activeLink = ref<number>(0);
+        const router = useRouter();
+        const route = useRoute();
+        function activateLink(index: number, url: string) {
+            activeLink.value = index;
+            if (url !== route.path) {
+                router.push(url);
+            }
+        }
+        return {
+            links,
+            activateLink,
+            activeLink
+        };
+    },
 };
 </script>
 
@@ -83,10 +80,12 @@ export default {
 .logo {
   height: 150px;
   width: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .logo img {
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
 }
 
@@ -143,5 +142,23 @@ export default {
 
 .linkedin:hover {
   color: #1da1f2;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-container {
+    display: flex;
+  }
 }
 </style>
