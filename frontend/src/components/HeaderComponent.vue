@@ -12,12 +12,12 @@
       <div v-if="isOpen" class="menu-container">
         <nav class="menu-nav">
           <ul>
-            <li><a href="https://lucasotoni.vercel.app/">Home</a></li>
-            <li><a href="https://lucasotoni.vercel.app/about">About</a></li>
-            <li><a href="https://lucasotoni.vercel.app/skills">Skills</a></li>
-            <li><a href="https://lucasotoni.vercel.app/experience">Experience</a></li>
-            <li><a href="https://lucasotoni.vercel.app/projects">Projects</a></li>
-            <li><a href="https://lucasotoni.vercel.app/contact">Contact</a></li>
+            <li><a @click.prevent="redirect('/')">Home</a></li>
+            <li><a @click.prevent="redirect('/about')">About</a></li>
+            <li><a @click.prevent="redirect('/skills')">Skills</a></li>
+            <li><a @click.prevent="redirect('/experience')">Experience</a></li>
+            <li><a @click.prevent="redirect('/projects')">Projects</a></li>
+            <li><a @click.prevent="redirect('/contact')">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import router from '@/router';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
@@ -35,9 +36,13 @@ export default defineComponent({
     function toggleMenu() {
       isOpen.value = !isOpen.value;
     }
+    function redirect(url: string) {
+      router.push(url);
+    }
     return {
       isOpen,
-      toggleMenu
+      toggleMenu,
+      redirect
     };
   }
 });
@@ -135,6 +140,7 @@ export default defineComponent({
 .menu-nav {
   width: 100vw;
   background-color: black;
+  height: auto;
 }
 .menu-nav ul {
   padding: 0;
@@ -193,5 +199,4 @@ export default defineComponent({
     display: none;
   }
 }
-
 </style>
