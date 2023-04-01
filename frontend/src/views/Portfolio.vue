@@ -16,20 +16,24 @@
             <p>{{ project.description }}</p>
           </div>
         </a>
+        <div class="mobile-info">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, onBeforeMount, reactive } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import type IProject from '../interfaces/IProject';
 
 export default {
   setup() {
     const projects = ref<IProject[]>([]);
 
-      onBeforeMount(() => {
+    onBeforeMount(() => {
       const projectsData = localStorage.getItem('projects');
       if (projectsData) {
         projects.value = JSON.parse(projectsData) as IProject[];
@@ -53,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   position: relative;
   width: 75%;
@@ -112,5 +116,43 @@ export default {
 
 .projects-container::-webkit-scrollbar-thumb:hover {
   background: #b44a08;
+}
+
+.mobile-info {
+  display: none;
+}
+
+@media (max-width: 600px) { 
+  .mobile-info p { 
+    display: none;
+  }
+
+  .card {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 996px) {
+  .details {
+    display: none;
+  }
+
+  .projects-container {
+    overflow-y: scroll;
+    height: 75vh;
+    width: 85vw;
+  }
+
+  .mobile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+  }
+
+  /* .container {
+    padding-left: 20px;
+  } */
 }
 </style>

@@ -103,6 +103,7 @@ export default {
     align-items: center;
     justify-content: space-around;
     width: 100vw;
+    overflow-y: scroll;
   }
 
   .title {

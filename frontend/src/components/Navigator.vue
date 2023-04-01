@@ -15,11 +15,11 @@
       </a>
     </div>
     <div class="social-icons">
-      <a href="https://github.com/"
+      <a :href="user?.socials.instagram"
         ><font-awesome-icon class="insta" icon="fa-brands fa-instagram"
       /></a>
-      <a href="https://github.com/"><font-awesome-icon class="git" icon="fa-brands fa-github" /></a>
-      <a href="https://github.com/"
+      <a :href="user?.socials.github"><font-awesome-icon class="git" icon="fa-brands fa-github" /></a>
+      <a :href="user?.socials.linkedin"
         ><font-awesome-icon class="linkedin" icon="fa-brands fa-linkedin-in"
       /></a>
     </div>
@@ -27,8 +27,9 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import type IUser from '../interfaces/IUser';
 
 interface Link {
   label: string;
@@ -36,30 +37,40 @@ interface Link {
 }
 
 export default {
-    setup() {
-        const links: Link[] = [
-            { label: "Home", url: "/" },
-            { label: "About", url: "/about" },
-            { label: "Skills", url: "/skills" },
-            { label: "Experience", url: "/experience" },
-            { label: "Projects", url: "/projects" },
-            { label: "Contact", url: "/contact" }
-        ];
-        const activeLink = ref<number>(0);
-        const router = useRouter();
-        const route = useRoute();
-        function activateLink(index: number, url: string) {
-            activeLink.value = index;
-            if (url !== route.path) {
-                router.push(url);
-            }
-        }
-        return {
-            links,
-            activateLink,
-            activeLink
-        };
-    },
+  setup() {
+    const user = ref<IUser>();
+
+    onBeforeMount(() => {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        user.value = JSON.parse(userData);
+      }
+    });
+
+    const links: Link[] = [
+      { label: 'Home', url: '/' },
+      { label: 'About', url: '/about' },
+      { label: 'Skills', url: '/skills' },
+      { label: 'Experience', url: '/experience' },
+      { label: 'Projects', url: '/projects' },
+      { label: 'Contact', url: '/contact' }
+    ];
+    const activeLink = ref<number>(0);
+    const router = useRouter();
+    const route = useRoute();
+    function activateLink(index: number, url: string) {
+      activeLink.value = index;
+      if (url !== route.path) {
+        router.push(url);
+      }
+    }
+    return {
+      links,
+      activateLink,
+      activeLink,
+      user
+    };
+  }
 };
 </script>
 
