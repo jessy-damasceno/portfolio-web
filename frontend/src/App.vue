@@ -3,8 +3,9 @@ import { RouterView } from 'vue-router';
 import SideBar from './components/SideBar.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import axios from 'axios';
+import { onBeforeMount } from 'vue';
 
-async function fetchData() {
+onBeforeMount(() => {
   try {
     axios
       .get('https://api-portfolio-xi30.onrender.com/user/6421f658ea7240b7b4b5010b')
@@ -20,15 +21,13 @@ async function fetchData() {
   } catch (error) {
     console.error(error);
   }
-}
-
-fetchData();
+});
 </script>
 
 <template>
-  <div style="display: flex; flex-direction:column;">
+  <div style="display: flex; flex-direction: column">
     <HeaderComponent />
-    <div style="display: flex;">
+    <div style="display: flex">
       <SideBar />
       <RouterView />
     </div>
