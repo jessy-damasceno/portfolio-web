@@ -75,6 +75,7 @@ h5 {
   font-weight: 400;
   background: none;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 .container {
