@@ -1,7 +1,7 @@
 <template>
   <div class="header-container">
     <div class="header">
-      <img src="../assets/logo_lucas.png" alt="" />
+      <img src="../assets/logo_lucas.png" alt="Logo" />
       <button class="hamburguer" @click="toggleMenu">
         <span></span>
         <span></span>
@@ -9,7 +9,7 @@
       </button>
     </div>
     <transition name="slide-down">
-      <div v-if="isOpen" class="menu-container">
+      <div v-if="isOpen" ref="isOpenRef" class="menu-container">
         <nav class="menu-nav">
           <ul>
             <li><a @click.prevent="redirect('/')">Home</a></li>
@@ -28,20 +28,38 @@
 <script lang="ts">
 import router from '@/router';
 import { defineComponent, ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 
 export default defineComponent({
   setup() {
     const isOpen = ref(false);
-
+    const isOpenRef = ref(null);
+    
+    onClickOutside(isOpenRef, (event) => {
+      console.log(event);
+      isOpen.value = false;
+    });
+    
     function toggleMenu() {
       isOpen.value = !isOpen.value;
     }
+
+    function closeMenu() {
+      isOpen.value = false;
+    }
+
+    // onClickOutside(isOpenRef, () => (isOpen.value = false));
+
     function redirect(url: string) {
+      isOpen.value = false;
       router.push(url);
     }
+
     return {
+      isOpenRef,
       isOpen,
       toggleMenu,
+      closeMenu,
       redirect
     };
   }
