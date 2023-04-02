@@ -2,14 +2,14 @@
   <div class="header-container">
     <div class="header">
       <img src="../assets/logo_lucas.png" alt="Logo" />
-      <button class="hamburguer" @click="toggleMenu">
+      <button class="hamburguer" @click="toggleMenu" ref="isOpenRef">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
     <transition name="slide-down">
-      <div v-if="isOpen" ref="isOpenRef" class="menu-container">
+      <div v-if="isOpen" class="menu-container">
         <nav class="menu-nav">
           <ul>
             <li><a @click.prevent="redirect('/')">Home</a></li>
@@ -36,7 +36,6 @@ export default defineComponent({
     const isOpenRef = ref(null);
     
     onClickOutside(isOpenRef, (event) => {
-      console.log(event);
       isOpen.value = false;
     });
     
@@ -44,14 +43,7 @@ export default defineComponent({
       isOpen.value = !isOpen.value;
     }
 
-    function closeMenu() {
-      isOpen.value = false;
-    }
-
-    // onClickOutside(isOpenRef, () => (isOpen.value = false));
-
     function redirect(url: string) {
-      isOpen.value = false;
       router.push(url);
     }
 
@@ -59,7 +51,6 @@ export default defineComponent({
       isOpenRef,
       isOpen,
       toggleMenu,
-      closeMenu,
       redirect
     };
   }
@@ -94,14 +85,20 @@ export default defineComponent({
   padding: 0;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .hamburguer span {
   width: 25px;
   height: 4px;
   margin: 3px;
-  background-color: #fff;
+  background-color: #ee6817;
   transition: transform 0.3s ease-in-out;
+}
+
+.hamburguer:hover span {
+  transition: 0.3s ease-in;
+  background-color: white;
 }
 
 .hamburguer span:nth-child(2) {
