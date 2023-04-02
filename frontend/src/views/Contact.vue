@@ -65,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  overflow-y: scroll;
+  width: 70vw;
+}
+
 .contact-container {
   padding: 40px 0;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
