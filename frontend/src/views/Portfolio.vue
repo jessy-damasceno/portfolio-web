@@ -123,6 +123,11 @@ export default {
 }
 
 @media (max-width: 600px) { 
+
+  .container {
+    width: 100vw;
+    overflow: hidden;
+  }
   .mobile-info p { 
     display: none;
   }
@@ -150,9 +155,5 @@ export default {
     align-items: center;
     padding: 12px;
   }
-
-  /* .container {
-    padding-left: 20px;
-  } */
 }
 </style>
