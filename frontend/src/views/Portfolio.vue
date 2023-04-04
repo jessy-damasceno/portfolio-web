@@ -87,6 +87,15 @@ export default {
   padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.details p {
+  background-color: rgb(23, 23, 23);
+  letter-spacing: 1.2px;
+  padding: 22px
 }
 
 .card:hover .details {

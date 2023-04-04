@@ -35,7 +35,7 @@ export default defineComponent({
     const isOpen = ref(false);
     const isOpenRef = ref(null);
     
-    onClickOutside(isOpenRef, (event) => {
+    onClickOutside(isOpenRef, () => {
       isOpen.value = false;
     });
     
