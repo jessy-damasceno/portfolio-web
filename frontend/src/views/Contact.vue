@@ -66,7 +66,6 @@ export default {
 
 <style scoped>
 .container {
-  overflow-y: scroll;
   width: 70vw;
 }
 
@@ -139,6 +138,7 @@ export default {
   border-top: 1px solid rgba(235, 235, 235, 0.1);
   display: flex;
   flex-direction: column;
+  max-width: 720px;
 }
 
 .email-form input,

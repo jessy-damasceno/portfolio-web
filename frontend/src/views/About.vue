@@ -152,6 +152,7 @@ export default {
 
   .container {
     overflow-y: hidden;
+    width: 100vw;
   }
 }
 </style>

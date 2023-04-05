@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <title-component :skills="'Experience'" />
+    <title-component class="title-comp" :skills="'Experience'" />
     <div class="experience-container">
       <div
         v-for="(experience, index) in user?.experiences"
@@ -97,18 +97,22 @@ export default {
   .container {
     padding: 50px 0px;
   }
+
+  .title-comp {
+    padding-left: 70px;
+    padding-top: 20px;
+  }
   .experiences-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  /* margin-right: 20px; */
   padding: 10px;
   text-align: center;
 }
 
 .experience-container {
-  height: 75vh;
+  height: 80%;
   max-width: 1200px;
   width: 100%;
   overflow-y: scroll;

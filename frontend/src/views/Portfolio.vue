@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .card {
   position: relative;
-  width: 75%;
+  width: 78%;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.478);
   padding: 25px;
@@ -68,8 +68,9 @@ export default {
 
 .card img {
   width: 100%;
-  height: auto;
   display: block;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 .details {
@@ -82,11 +83,20 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0);
   color: #fff;
   padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.details p {
+  /* background-color: rgb(23, 23, 23); */
+  letter-spacing: 1.2px;
+  padding: 22px
 }
 
 .card:hover .details {
@@ -96,7 +106,7 @@ export default {
 .projects-container {
   overflow-y: scroll;
   height: 75vh;
-  width: 70vw;
+  width: 100%;
 }
 
 .projects-container::-webkit-scrollbar {
@@ -123,6 +133,11 @@ export default {
 }
 
 @media (max-width: 600px) { 
+
+  .container {
+    width: 100vw;
+    overflow: hidden;
+  }
   .mobile-info p { 
     display: none;
   }
@@ -149,10 +164,13 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 12px;
+    text-align: center;
   }
 
-  /* .container {
-    padding-left: 20px;
-  } */
+  .mobile-info h3 {
+    color: #ee6817;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
 }
 </style>

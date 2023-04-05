@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .skill {
   display: flex;
   flex-direction: column;
@@ -152,6 +152,10 @@ export default {
 
   .skills-container { 
     margin: 0 auto;
+  }
+
+  .container {
+    height: 95vh;
   }
 }
 </style>
