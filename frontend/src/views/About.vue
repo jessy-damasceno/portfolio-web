@@ -1,5 +1,5 @@
 <template>
-  <div class="container about-container">
+  <div class="container">
     <title-component :skills="'About'" />
     <div class="infos">
       <div class="about-info">
@@ -28,7 +28,7 @@ import type IUser from '../interfaces/IUser';
 export default {
   methods: {
     openPDF() {
-      window.open('/Curriculo_Atualizado.pdf', '_blank')
+      window.open('/curriculo-atualizado.pdf', '_blank')
     }
   },
   setup() {
@@ -88,7 +88,7 @@ export default {
 
 @media (max-width: 1575px) {
   .container {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .infos {
@@ -151,7 +151,7 @@ export default {
   }
 
   .container {
-    overflow-y: hidden;
+    overflow-y: auto;
     width: 100vw;
   }
 }
