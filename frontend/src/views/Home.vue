@@ -9,7 +9,7 @@
       <p class="role">{{ user?.role }}</p>
     </div>
     <div class="img-container">
-      <img class="img-float" src="../assets/logo_lucas.png" alt="logo" />
+      <img class="img-float" src="../assets/logo_jessy.png" alt="logo" />
     </div>
   </div>
 </template>
