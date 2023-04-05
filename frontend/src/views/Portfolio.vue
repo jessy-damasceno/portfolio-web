@@ -8,14 +8,13 @@
         class="card"
         @mouseover="showDetails(index)"
         @mouseleave="hideDetails(index)"
+        @click="goToProject(project.url)"
       >
         <a :href="project.url" target="_blank"></a>
         <img :src="project.img" alt="Project Image" />
         <div v-if="project.showDetails" class="details">
-          <a :href="project.url" target="_blank">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
-          </a>
         </div>
         <div class="mobile-info">
           <a :href="project.url" target="_blank">
@@ -51,10 +50,15 @@ export default {
       projects.value[index].showDetails = false;
     }
 
+    function goToProject(url: string): void {
+      window.open(url, '_blank');
+    }
+
     return {
       projects,
       showDetails,
-      hideDetails
+      hideDetails,
+      goToProject
     };
   }
 };
@@ -69,6 +73,10 @@ export default {
   margin: 25px auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.478);
   /* padding: 25px; */
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card img {
@@ -89,7 +97,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 25px;
   transition: opacity 0.3s ease-in-out;
@@ -105,8 +113,10 @@ export default {
 
 .details p {
   /* background-color: rgb(23, 23, 23); */
+  width: 100%;
   letter-spacing: 1.2px;
-  padding: 22px;
+  /* padding: 22px; */
+  color: #ee6817;
 }
 
 /* .card:hover .details {
