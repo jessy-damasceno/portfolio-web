@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  overflow-y: auto;
+}
 .first {
   min-width: 300px;
 }
@@ -53,9 +56,8 @@ export default {
 }
 
 .experience-container {
-  height: 75vh;
+  height: auto;
   max-width: 1200px;
-  overflow-y: scroll;
 }
 
 .experience-container::-webkit-scrollbar {
@@ -84,10 +86,9 @@ export default {
 }
 
 .experience-container {
-  height: 100vh;
+  height: auto;
   max-width: 1200px;
   width: 90vw;
-  overflow-y: scroll;
   overflow-x: hidden;
 }
 }
@@ -112,7 +113,7 @@ export default {
 }
 
 .experience-container {
-  height: 80%;
+  height: auto;
   max-width: 1200px;
   width: 100%;
   overflow-y: scroll;
