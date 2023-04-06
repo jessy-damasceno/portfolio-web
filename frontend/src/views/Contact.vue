@@ -66,15 +66,17 @@ export default {
 
 <style scoped>
 .container {
+  height: auto;
+  overflow: auto;
   width: 70vw;
+  max-width: 1200px;
 }
 
 .contact-container {
   padding: 40px 0;
   border-top: 1px solid rgba(235, 235, 235, 0.1);
   display: flex;
-  width: 70vw;
-  max-width: 720px;
+  width: 100%;
 }
 
 .social {
@@ -138,7 +140,6 @@ export default {
   border-top: 1px solid rgba(235, 235, 235, 0.1);
   display: flex;
   flex-direction: column;
-  max-width: 720px;
 }
 
 .email-form input,
@@ -171,11 +172,12 @@ textarea:focus {
     gap: 24px;
     align-items: center;
     width: 100%;
-    max-width: none;
   }
 
   .container {
-    width: 100vw;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
   }
   .contact {
     flex-direction: row;

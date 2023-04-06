@@ -25,9 +25,9 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div style="display: flex; flex-direction: column; width: 100%;">
+  <div style="display: flex; flex-direction: column; width: 100%; height: 100vh;">
     <HeaderComponent />
-    <div style="display: flex;">
+    <div style="display: flex; height: 100%;">
       <SideBar />
       <RouterView />
     </div>
